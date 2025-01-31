@@ -18,6 +18,9 @@ return {
       window = {
         mappings = {
           ['\\'] = 'close_window',
+          ['%'] = 'add',
+          ['d'] = 'add_directory',
+          ['D'] = 'delete',
         },
       },
     },
