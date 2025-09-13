@@ -6,9 +6,20 @@ return {
     config = function()
       local lint = require 'lint'
       lint.linters_by_ft = {
-        markdown = { 'markdownlint' },
+        markdown = { 'vale' },
+        bash = { 'shellcheck' },
+        python = { 'pylint' },
+        go = { 'golangcilint' },
       }
-
+      lint.linters.golangcilint.ignore_exitcode = true
+      lint.linters.golangcilint.args = {
+        'run',
+        '--config',
+        '.golangci.yml',
+        '--out-format',
+        'json',
+      }
+      lint.linters.golangcilint.stream = 'stdout'
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
       -- instead set linters_by_ft like this:
       -- lint.linters_by_ft = lint.linters_by_ft or {}

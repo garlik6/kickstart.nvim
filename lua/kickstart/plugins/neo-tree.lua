@@ -10,6 +10,7 @@ return {
     'MunifTanjim/nui.nvim',
   },
   lazy = false,
+  respect_gitignore = false,
   keys = {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
